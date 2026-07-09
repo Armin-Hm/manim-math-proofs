@@ -92,13 +92,13 @@ def main():
 
     print(f"Video copied to: {final_video}")
 
-    subtitle_source = proof_folder / "subtitles.fa.srt"
+    subtitle_source = proof_folder / "subtitles.en.srt"
     if subtitle_source.exists():
-        final_subtitle = output_folder / f"{args.proof}_fa.srt"
+        final_subtitle = output_folder / f"{args.proof}_en.srt"
         shutil.copy2(subtitle_source, final_subtitle)
         print(f"Subtitle copied to: {final_subtitle}")
     else:
-        print("No subtitle file found yet. Expected: subtitles.fa.srt")
+        print("No subtitle file found yet. Expected: subtitles.en.srt")
 
 
 if __name__ == "__main__":

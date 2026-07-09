@@ -24,3 +24,6 @@ venv/
 
 # Rendered final outputs
 outputs/
+
+# Generated subtitle files inside proof folders
+اثبات-های-ریاضی/*/subtitles.*.srt

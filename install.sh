@@ -8,7 +8,11 @@ sudo apt-get install -y \
   libcairo2-dev \
   libpango1.0-dev \
   ffmpeg \
-  sox
+  sox \
+  texlive-latex-base \
+  texlive-latex-extra \
+  texlive-fonts-recommended \
+  dvisvgm
 
 echo "===== CREATE VIRTUAL ENVIRONMENT ====="
 python -m venv .venv
@@ -24,6 +28,11 @@ echo "===== INSTALL MANIM AND VOICEOVER ====="
 echo "===== TEST INSTALLATION ====="
 .venv/bin/python -c "import manim; print('Manim OK:', manim.__version__)"
 .venv/bin/python -c "from manim_voiceover import VoiceoverScene; from manim_voiceover.services.gtts import GTTSService; print('Voiceover OK')"
+
+echo "===== TEST SYSTEM TOOLS ====="
+ffmpeg -version | head -n 1
 sox --version
+latex --version | head -n 1
+dvisvgm --version | head -n 1
 
 echo "===== DONE ====="
