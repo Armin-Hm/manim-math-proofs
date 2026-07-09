@@ -21,3 +21,6 @@ venv/
 
 # Local output folders inside proofs
 اثبات-های-ریاضی/*/output/
+
+# Rendered final outputs
+outputs/
