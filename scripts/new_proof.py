@@ -140,7 +140,5 @@ def main():
     print("Render it with:")
     print(f"python scripts/render.py {args.folder_name} --quality low")
 
-
 if __name__ == "__main__":
-    main()rm -rf "اثبات-های-ریاضی/template_test"
-rm -rf outputs/template_test
+    main()
