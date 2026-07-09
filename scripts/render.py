@@ -3,6 +3,7 @@ import subprocess
 from pathlib import Path
 
 ROOT_FOLDER = "اثبات-های-ریاضی"
+VENV_PYTHON = Path(".venv/bin/python")
 
 
 def main():
@@ -30,18 +31,25 @@ def main():
 
     args = parser.parse_args()
 
+    if not VENV_PYTHON.exists():
+        raise FileNotFoundError(
+            "Virtual environment not found. Please run: bash install.sh"
+        )
+
     scene_file = Path(ROOT_FOLDER) / args.proof / "scene.py"
 
     if not scene_file.exists():
         raise FileNotFoundError(f"Scene file not found: {scene_file}")
 
     quality_flags = {
-        "low": "-pql",
-        "medium": "-pqm",
-        "high": "-pqh",
+        "low": "-ql",
+        "medium": "-qm",
+        "high": "-qh",
     }
 
     command = [
+        str(VENV_PYTHON),
+        "-m",
         "manim",
         quality_flags[args.quality],
         str(scene_file),
